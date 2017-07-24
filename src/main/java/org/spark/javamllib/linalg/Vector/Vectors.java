@@ -1,4 +1,4 @@
-package org.spark.mllib.linalg.Vector;
+package org.spark.javamllib.linalg.Vector;
 
 import java.io.Serializable;
 
@@ -44,6 +44,6 @@ public class Vectors implements Serializable{
         }
     }
 
-    
+
 
 }

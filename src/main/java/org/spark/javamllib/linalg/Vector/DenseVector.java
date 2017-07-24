@@ -1,4 +1,4 @@
-package org.spark.mllib.linalg.Vector;
+package org.spark.javamllib.linalg.Vector;
 
 import org.apache.spark.api.java.function.Function2;
 
