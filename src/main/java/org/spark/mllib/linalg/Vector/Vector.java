@@ -1,8 +1,6 @@
-package datasyslab.mllib.linalg.Vector;
+package org.spark.mllib.linalg.Vector;
 
 import org.apache.spark.api.java.function.Function2;
-import org.apache.spark.api.java.function.PairFunction;
-import scala.Unit;
 
 import java.io.Serializable;
 
@@ -102,7 +100,7 @@ public abstract class Vector implements Serializable{
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        return true;
     }
 
 

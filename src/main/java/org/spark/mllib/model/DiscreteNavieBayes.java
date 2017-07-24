@@ -1,4 +1,4 @@
-package datasyslab.mllib.model;
+package org.spark.mllib.model;
 
 public class DiscreteNavieBayes {
 

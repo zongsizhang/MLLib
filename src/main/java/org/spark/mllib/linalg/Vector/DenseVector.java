@@ -1,4 +1,4 @@
-package datasyslab.mllib.linalg.Vector;
+package org.spark.mllib.linalg.Vector;
 
 import org.apache.spark.api.java.function.Function2;
 
