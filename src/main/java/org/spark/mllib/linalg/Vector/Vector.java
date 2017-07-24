@@ -3,6 +3,7 @@ package org.spark.mllib.linalg.Vector;
 import org.apache.spark.api.java.function.Function2;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Created by zongsizhang on 7/22/17.
@@ -95,13 +96,19 @@ public abstract class Vector implements Serializable{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        throw new UnsupportedOperationException("hashcode is not implemented in abstract class Vector");
     }
 
     @Override
     public boolean equals(Object obj) {
-        return true;
+        if(!(obj instanceof Vector)){
+            return false;
+        }else{
+            return Arrays.equals(this.toArray(), ((Vector) obj).toArray());
+        }
     }
+
+
 
 
 

@@ -69,6 +69,27 @@ public class DenseVector extends Vector{
         }
     }
 
+    @Override
+    public int hashCode() {
+        int result = 31 + size();
+        int end = values.length;
+        int i = 0;
+        int nnz = 0;
+
+        while(i < end && nnz < Vectors.MAX_HASH_NNZ){
+            double v = values[i];
+            if(v != 0.0){
+                result = 31 * result + i;
+                Long bits = Double.doubleToLongBits(v);
+                bits = bits ^ (bits >>> 32);
+                result = 31 * result + bits.intValue();
+                nnz++;
+            }
+            i++;
+        }
+        return result;
+    }
+
     public String toJson() {
         throw new UnsupportedOperationException("toJson is not implemented for" + this.getClass());
     }

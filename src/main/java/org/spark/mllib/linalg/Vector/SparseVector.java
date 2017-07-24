@@ -111,6 +111,30 @@ public class SparseVector extends Vector{
         }
     }
 
+    @Override
+    public int hashCode() {
+        int result = 31 + size;
+        int end = values.length;
+        int k = 0;
+        int nnz = 0;
+
+        while(k < end && nnz < Vectors.MAX_HASH_NNZ){
+            double v = values[k];
+            if(v != 0.0){
+                int i = indices[k];
+                result = 31 * result + i;
+                Long bits = Double.doubleToLongBits(v);
+                bits = bits ^ (bits >>> 32);
+                result = 31 * result + bits.intValue();
+                nnz++;
+            }
+            k++;
+        }
+        return result;
+    }
+
+
+
     public String toJson() {
         throw new UnsupportedOperationException("toJson is not implemented for" + this.getClass());
     }
